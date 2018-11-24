@@ -1,0 +1,32 @@
+
+Get to your project folder and then use these commands
+
+For installing Node .js 
+npm init
+package.json file has been added
+
+For node sass package
+npm i node-sass
+(installs node_modules folder)
+Also shows it as a dependecy in the package.json file
+
+to make the code saas compile - we have to go into the script section of the pakcage.json file and use the following line 
+
+"sass" : "node-sass -w scss/ -o dist/css/ --recursive"
+
+The command to use this is : 
+npm run sass
+	
+
+For creating .gitignore
+echo > .gitignore
+
+go to the file and add in the node_modules there 
+
+
+
+For the GIT files
+
+git init
+git add .
+git commit -m "Intial worflow setup"
