@@ -31,6 +31,7 @@
 
       &:nth-child(2) {
         opacity: 0;
+        //display: none;
       }
 
       //line 3 rotates
@@ -39,5 +40,103 @@
         transform: rotate(-45deg) translate(7px, -6px);
       }
     }
+  }
+}
+
+//menu overlay
+
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  opacity: 0.9;
+  visibility: hidden;
+
+  &.show {
+    visibility: visible;
+  }
+
+  .menubranding,
+  .menunav {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    width: 50%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .menunav {
+    margin: 0;
+    padding: 0;
+    background: darken($primary-color, 5);
+    list-style: none;
+    transform: translate3d(0, -100%, 0);
+    @include Ease-out;
+
+    &.show {
+      //slide from top
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  //branding section
+
+  .menubranding {
+    background: $primary-color;
+    @include Ease-out;
+    transform: translate3d(0, 100%, 0);
+
+    &.show {
+      //slide from bottom
+      transform: translate3d(0, 0, 0);
+    }
+
+    .portrait {
+      width: 250px;
+      height: 250px;
+      background: url("../images/portrait.jpg");
+      border-radius: 50%;
+      border: solid 3px $secondary-color;
+    }
+  }
+
+  .classitem {
+    transform: translate3d(600px, 0, 0);
+    @include Ease-out;
+
+    &.show {
+      //slide from right
+      transform: translate3d(0, 0, 0);
+    }
+
+    &.current > a {
+      color: $secondary-color;
+    }
+  }
+
+  .navlink {
+    display: inline-block;
+    position: relative;
+    font-size: 30px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1rem 0;
+    font-weight: 300;
+    color: #fff;
+    @include Ease-out;
+
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+}
+//Delay for each item in nav by sliding in for 0.1 s
+
+@for $g from 1 through 4 {
+  .classitem:nth-child(#{$g}) {
+    transition-delay: $g * 0.1s;
   }
 }
