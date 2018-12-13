@@ -28,3 +28,38 @@ $background-opacity: 0.9;
     }
   }
 }
+
+//Set Text Color function
+
+@function settextColor($Color) {
+  @if (lightness($Color) > 40) {
+    @return #000;
+  } @else {
+    @return #fff;
+  }
+}
+//media query mixins
+
+@mixin mediaSmall {
+  @media screen and(max-width :500px) {
+    @content;
+  }
+}
+
+@mixin mediaMedium {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mediaLarge {
+  @media screen and (min-width: 769px) and (max-width: 1170px) {
+    @content;
+  }
+}
+
+@mixin mediaExtraLarge {
+  @media screen and (min-width: 1171px) {
+    @content;
+  }
+}
