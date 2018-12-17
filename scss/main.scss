@@ -111,6 +111,48 @@ main {
   }
 }
 
+//work page
+.projects {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+
+  img {
+    width: 100%;
+    border: 3px #fff solid;
+
+    &:hover {
+      opacity: 0.5;
+      border-color: $secondary-color;
+      @include Ease-out;
+    }
+  }
+}
+
+//buttons
+.btn {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 0;
+  margin-bottom: 0.3rem;
+  &:hover {
+    background-color: $secondary-color;
+    color: settextColor($secondary-color);
+  }
+}
+
+.btndark {
+  @extend .btn;
+  background-color: darken($primary-color, 50);
+  color: #fff;
+}
+
+.btnlight {
+  @extend .btn;
+  background-color: lighten($primary-color, 50);
+  color: #333;
+}
+
 //navlink , btnline , menubtn,menunav
 #mainfooter {
   text-align: center;
